@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-example-front-service
+spec:
+  selector:
+    app: kube-example-front
+  ports:
+    - port: 80
+      targetPort: 3001
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-example-back-service
+spec:
+  selector:
+    app: kube-example-back
+  ports:
+    - port: 3002
+      targetPort: 3002
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-example-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kube-example-front
+  template:
+    metadata:
+      labels:
+        app: kube-example-front
+    spec:
+      containers:
+        - name: kube-example-front
+          image: kube-example-front
+          ports:
+            - containerPort: 3001
+          imagePullPolicy: Never
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-example-back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kube-example-back
+  template:
+    metadata:
+      labels:
+        app: kube-example-back
+    spec:
+      containers:
+        - name: kube-example-back
+          image: kube-example-back
+          ports:
+            - containerPort: 3002
+          imagePullPolicy: Never
