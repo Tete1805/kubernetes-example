@@ -17,11 +17,11 @@ You can also install Minikube or Kind to create a simple cluster for you
 ## Install the dashboard
 
 The dashboard is a complex deployment relying on many different parts (ServiceAccount, Secret, Namespace...).  
-If you're interested, you can read the content of the deployment here: https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended.yaml but it might be a bit soon and is not required at this stage.
+If you're interested, you can read the content of the deployment here: https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml but it might be a bit soon and is not required at this stage.
 
 To install the dashboard, type in a shell
 ```
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
 ```
 
 Now that the dashboard is installed, you need to create a service account to get a token to access it. (O_O)
