@@ -53,7 +53,7 @@ cluster-admin         yyyy-mm-ddThh:mm:ssZ
 ```
 Create a cluster role binding between your dashboard-admin-user and cluster-admin: 
 ```
-kubectl create clusterrolebinding dashboard-admin-user --clusterrole=cluster-admin --serviceaccount=kubernetes-dashboard:dashboard-admin-usern
+kubectl create clusterrolebinding dashboard-admin-user --clusterrole=cluster-admin --serviceaccount=kubernetes-dashboard:dashboard-admin-user
 ```
 (be careful as this user is now the cluster's admin since we just bound it to the role cluster-admin)
 
